@@ -17,9 +17,32 @@ To take the differential 1-form for the parallel direction, I rotated all of the
 - [Velocity Splitting.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/Velocity%20Splitting.ipynb)
   - Still a work in progress, this file is where I am beginning to conduct a more rigorous velocity breakdown. Some of the pixels contain multiple components at different velocities along the line of sight so in order to increase the accuracy of the gradients, I am working on splitting up the structures into once that are at the same velocity structure.
 - [Masses and Velocity Ratios.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/Masses%20and%20Velocity%20Ratios.ipynb)
+  - In this Jupyter Notebook, I first calculate the masses of the star forming regions in each of the 6 regions that were identified by Barnard (B10, B211, B213, B216, B218, B7) using the $`H_2`$ Column Density maps, which were derived from the dust maps
+  - I also examine the ratios between the maximum likelihood velocities and the velocities of the main ammonia peaks in the raw data for the ammonia (1,1) inversion transition to make sure that nothing was drastically altered during the Bayesian analysis.
 - [Modeling Filament.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/Modeling%20Filament.ipynb)
+  - Also still a work in progress, here I am working on an analytical vector model of a filament so that I can control what the line of sight velocity structure looks like, but then also make changes to the viewing angle and the on sky velocity structure to see what we are actually able to resolve.
+  - The goal is to compare what we see in the different models that I am making with the actual data to be able to better make conclusions about the physics that may be occurring in and around the filaments present in the Taurus Molecular Cloud.
 - [Spine Curve Fitting.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/Spine%20Curve%20Fitting.ipynb)
+  - Originally, I was attempting to get the parallel and perpendicular directions by fitting polynomials to the spines. But even at high order polynomials this is not a good approach.
+    - Many of the spines do not pass a vertical line test where they could be fit by functions
+    - All of the spines have too much small scale fluctuation to be able to be fit by a simple polynomial and would require far more complex functions to even begin to have strong fits
+  - Instead, I decided to deconvolve the spines to be on the same spatial scale as the ammonia data. Then, going pixel by pixel, I found the distances to each of the spines and appended the distance to the closest spine to get a Distance Transform
+    - By taking a gradient of the distance transform, I had a Differential 1-Form, which tells about how to measure the vector field of interest
+      - All of the vectors in the Differential 1-Form are normalized so that it is only measuring the direction and not impacting the magnitude of the vector projection
+    - To get the perpendicular Differential 1-Form, I multiplied the gradient of the Distance Transform by -1 so that the vectors were pointing toward the spines.
+    - To get the parallel Differential 1-Form, I rotated each of the vectors for the perpendicular Differential 1-Form by 90$`^\circ`$.
 - [Integrated Intensities.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/Integrated%20Intensities.ipynb)
+  - To reduce the noise, I built a 5$`\sigma`$ mask from the integrated intensity map using the maximum likelihood velocities, the maximum likelihood line widths, and the known frequency separation of the ammonia (1,1) inversion spectrum. I then calculated the rms of each of these spectra using the velocity channels not included in the integrated intensity calculation. I then built the 5$`\sigma`$ mask based on that information.
 - [B213 Analysis.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/B213%20Analysis.ipynb)
+  - In this Jupyter Notebook, this is where I did the bulk of the velocity gradient analysis using the differential geometry to get the gradients in the parallel and perpendicular directions to the spines. While the title of the Jupyter Notebook is for B213, it is also set up to be able to find the cumulative distribution functions for any of the other 5 regions, just by changing the name for 'region'.
 - [Classification Analysis.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/Classification%20Analysis.ipynb)
+  - Here, I began to classify the spines into different categories based on visually how the structures of how they appeared on the plane of the sky.
+    - Class 1 Spines: Include an identified dense core in the spine
+      - Calculated by finding the closest spine to each of the cores
+    - Class 2 Spines: Feeding into a Class 1 Spine
+    - Class 3 Spines: Feeding into a Class 2 Spine
+    - Class 4 Spines: Isolated, Feeding into a Class 3 Spine, or part of a structure that does not contain any cores
+  - I then also found the relationship between the classification of the spines and the $`H_2`$ column density and the linewidth.
+  - Using the same analysis techniques as seen in [B213 Analysis.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/B213%20Analysis.ipynb), I took the velocity gradients of the ammonia gas in the perpendicular directions of the Class 1 Spines and the parallel directions of the Class 2 Spines to see if there were any noteworthy differences.
 - [Error Analysis.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/Error%20Analysis.ipynb)
+  - In this Notebook, I began working on finding potential sources of error like tracking the linewidth of the posterior distributions and the signal to noise ratio using Nyquist Sampling moving outward from the spines.
