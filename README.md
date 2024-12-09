@@ -13,3 +13,6 @@ To take the differential 1-form for the parallel direction, I rotated all of the
 
 ## Table of Contents
 - [Maximum Likelihood and Spines.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/Maximum%20Likelihood%20and%20Spines.ipynb)
+  - This file is where I started the analysis. It contains the code that I used to make the maximum likelihood velocity maps, where I made converted the coordinates of the dust spines, and where I selected all of the spines that I wanted to include in my analysis based on whether they were spatially located where ammonia data also existed.
+- [Velocity Splitting.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/Velocity%20Splitting.ipynb)
+  - Still a work in progress, this file is where I am beginning to conduct a more rigorous velocity breakdown. Some of the pixels contain multiple components at different velocities along the line of sight so in order to increase the accuracy of the gradients, I am working on splitting up the structures into once that are at the same velocity structure.
