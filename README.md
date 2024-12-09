@@ -16,3 +16,10 @@ To take the differential 1-form for the parallel direction, I rotated all of the
   - This file is where I started the analysis. It contains the code that I used to make the maximum likelihood velocity maps, where I made converted the coordinates of the dust spines, and where I selected all of the spines that I wanted to include in my analysis based on whether they were spatially located where ammonia data also existed.
 - [Velocity Splitting.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/Velocity%20Splitting.ipynb)
   - Still a work in progress, this file is where I am beginning to conduct a more rigorous velocity breakdown. Some of the pixels contain multiple components at different velocities along the line of sight so in order to increase the accuracy of the gradients, I am working on splitting up the structures into once that are at the same velocity structure.
+- [Masses and Velocity Ratios.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/Masses%20and%20Velocity%20Ratios.ipynb)
+- [Modeling Filament.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/Modeling%20Filament.ipynb)
+- [Spine Curve Fitting.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/Spine%20Curve%20Fitting.ipynb)
+- [Integrated Intensities.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/Integrated%20Intensities.ipynb)
+- [B213 Analysis.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/B213%20Analysis.ipynb)
+- [Classification Analysis.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/Classification%20Analysis.ipynb)
+- [Error Analysis.ipynb](https://github.com/lucyjsteffes/taurus_ammonia/blob/main/Error%20Analysis.ipynb)
